@@ -16,10 +16,9 @@ function checkEmailAddressIsMistyped(emailAddress) {
         'yandex.ru'
     ];
 
-    //0. выкусить хост из emailAddress (всё после "@"), убрать пробелы по бокам если вдруг
+
     var domain = emailAddress.split('@');
-    //console.log(domain);
-    //1. пробежаться по массиву popularHosts
+
     hosts.forEach(function(item, i, arr){
             var diff = levenshtein(item, domain[1]);
            // console.log(diff);
@@ -66,7 +65,5 @@ function checkEmailAddressIsMistyped(emailAddress) {
         }
         return buf[l2 + cutHalf - flip];
     }
-    //2. вычислить разницу между очередным хостом из массива и хостом из emailAddress, по Левенштейну
-    //   пример на РНР есть тут — http://dk2.php.net/manual/en/function.levenshtein.php
-    //3. если нашли пример где разница 1-2, то кончаем пробег по массиву и вываливаем confirm('Вы имели ввиду ... ?')
+    
 }
